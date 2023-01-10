@@ -32,13 +32,31 @@ requests.adapters.DEFAULT_RETRIES = 5
 s = requests.session()
 s.keep_alive = False
 
+UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+
 def download(urls, id_, csv_list):
     print('download start:')
     for count, url in enumerate(urls):
         print(url)
         def get_transcript(url):
+
+            url = "https://www.ted.com/graphql?operationName=Transcript&variables=%7B%22id%22%3A%22alexis_nikole_nelson_a_flavorful_field_guide_to_foraging%22%2C%22language%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2218f8e983b84c734317ae9388c83a13bc98702921b141c2124b3ce4aeb6c48ef6%22%7D%7D"
+
+            headers = CaseInsensitiveDict()
+            headers["User-Agent"] = UserAgent
+            headers["Accept"] = "*/*"
+            headers["Accept-Language"] = "en-US,en;q=0.5"
+            headers["Accept-Encoding"] = "gzip, deflate, br"
+            headers["Referer"] = "https://www.ted.com/talks/alexis_nikole_nelson_a_flavorful_field_guide_to_foraging/transcript"
+            headers["content-type"] = "application/json"
+            headers["client-id"] = "Zenith production"
+            headers["x-operation-name"] = "Transcript"
+            resp = requests.get(url, headers=headers)
+            print(resp.content)
+
+            
             transcript = ""
-            transcript_res = requests.get(url, headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' })
+            transcript_res = requests.get(url, headers = {'User-Agent': UserAgent})
                                                                         
             soup = BeautifulSoup(transcript_res.text)
             e = soup.select('span[class="inline cursor-pointer hover:bg-red-300 css-82uonn"]')
@@ -52,7 +70,7 @@ def download(urls, id_, csv_list):
                 count_=0
                 while  count_ < 3:    # Check 3 more times
                     time.sleep(random.randint(0,900)/1000)     # Randomly wait for 0-0.9 seconds.
-                    transcript_res = requests.get(url, headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' })
+                    transcript_res = requests.get(url, headers = {'User-Agent':UserAgent })
 
                     soup = BeautifulSoup(transcript_res.text)
                     e = soup.select('span[class="inline cursor-pointer hover:bg-red-300 css-82uonn"]')
@@ -238,21 +256,6 @@ def download(urls, id_, csv_list):
 
 if __name__ == '__main__':
 
-   
-    url = "https://www.ted.com/graphql?operationName=Transcript&variables=%7B%22id%22%3A%22alexis_nikole_nelson_a_flavorful_field_guide_to_foraging%22%2C%22language%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2218f8e983b84c734317ae9388c83a13bc98702921b141c2124b3ce4aeb6c48ef6%22%7D%7D"
-
-    headers = CaseInsensitiveDict()
-    headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0"
-    headers["Accept"] = "*/*"
-    headers["Accept-Language"] = "en-US,en;q=0.5"
-    headers["Accept-Encoding"] = "gzip, deflate, br"
-    headers["Referer"] = "https://www.ted.com/talks/alexis_nikole_nelson_a_flavorful_field_guide_to_foraging/transcript"
-    headers["content-type"] = "application/json"
-    headers["client-id"] = "Zenith production"
-    headers["x-operation-name"] = "Transcript"
-
-    resp = requests.get(url, headers=headers)
-    print(resp.content)
     csv_list_ = []
     with  Manager()  as manager:
         csv_list = manager.list()    # SPECIAL variable - can be used only locally.
