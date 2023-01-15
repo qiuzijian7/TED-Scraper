@@ -34,56 +34,29 @@ s.keep_alive = False
 
 UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
 
+
 def download(urls, id_, csv_list):
     print('download start:')
     for count, url in enumerate(urls):
         print(url)
-        def get_transcript(url):
-
-            url = "https://www.ted.com/graphql?operationName=Transcript&variables=%7B%22id%22%3A%22alexis_nikole_nelson_a_flavorful_field_guide_to_foraging%22%2C%22language%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2218f8e983b84c734317ae9388c83a13bc98702921b141c2124b3ce4aeb6c48ef6%22%7D%7D"
+        def get_transcript(name,url):
+           # transcriptUrl = 'https://www.ted.com/graphql?operationName=Transcript&variables={"id":"alexis_nikole_nelson_a_flavorful_field_guide_to_foraging","language":"zh-cn"}&extensions={"persistedQuery":{"version":1,"sha256Hash":"906b90e820733c27cab3bb5de1cb4578657af4610c346b235b4ece9e89dc88bd"}}'
+            url = url.strip().replace('\t', '').replace('\n', ' ')
+            transcriptUrl = 'https://www.ted.com/graphql?operationName=Transcript&variables={"id":"' + name + '","language":"zh-cn"}&extensions={"persistedQuery":{"version":1,"sha256Hash":"906b90e820733c27cab3bb5de1cb4578657af4610c346b235b4ece9e89dc88bd"}}'
 
             headers = CaseInsensitiveDict()
-            headers["User-Agent"] = UserAgent
+            headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0"
             headers["Accept"] = "*/*"
             headers["Accept-Language"] = "en-US,en;q=0.5"
             headers["Accept-Encoding"] = "gzip, deflate, br"
-            headers["Referer"] = "https://www.ted.com/talks/alexis_nikole_nelson_a_flavorful_field_guide_to_foraging/transcript"
+            headers["Referer"] = url+'/transcript'
             headers["content-type"] = "application/json"
             headers["client-id"] = "Zenith production"
             headers["x-operation-name"] = "Transcript"
-            resp = requests.get(url, headers=headers)
-            print(resp.content)
-
-            
-            transcript = ""
-            transcript_res = requests.get(url, headers = {'User-Agent': UserAgent})
-                                                                        
-            soup = BeautifulSoup(transcript_res.text)
-            e = soup.select('span[class="inline cursor-pointer hover:bg-red-300 css-82uonn"]')
-
-            for  e_  in e:
-                classes = e_.get('class')
-                text = e_.select('p')[0].text
-                transcript += text.strip().replace('\t', '').replace('\n', ' ')
-            
-            if (transcript_res.status_code!=200) or (transcript_res.text=='') or (transcript==''):
-                count_=0
-                while  count_ < 3:    # Check 3 more times
-                    time.sleep(random.randint(0,900)/1000)     # Randomly wait for 0-0.9 seconds.
-                    transcript_res = requests.get(url, headers = {'User-Agent':UserAgent })
-
-                    soup = BeautifulSoup(transcript_res.text)
-                    e = soup.select('span[class="inline cursor-pointer hover:bg-red-300 css-82uonn"]')
-
-                    for  e_  in e:
-                        classes = e_.get('class')
-                        text = e_.select('p')[0].text
-                        transcript += text.strip().replace('\t', '').replace('\n', ' ')
-
-                    count_ += 1
-                    if (transcript_res.status_code==200) and (transcript_res.text!='') and (transcript!=''):    break
-
-            return transcript
+            resp = requests.get(transcriptUrl, headers=headers)
+            #print(resp.content.decode())
+            return resp.text
+         
 
         def get__json_obj(url):
             html = ''
@@ -154,10 +127,10 @@ def download(urls, id_, csv_list):
 
         d["duration"]  =  get_value(["pageProps","videoData","duration"], metadata)    # In seconds.
 
-
+        slug = get_value(["pageProps","videoData","slug"], metadata)
         language  =  get_value(["language"], metadata)
-        url__transcript  =  url + "/transcript?language=" + language
-        d["transcript"]  =  get_transcript(url__transcript)
+        #url__transcript  =  url + "/transcript?language=" + language
+        d["transcript"]  =  get_transcript(slug,url)
 
 
         d["video_type_name"]  =  get_value(["pageProps", "videoData", "tpye","name"], metadata)    # One of:  TED Stage Talk, TEDx Talk, TED-Ed Original, TED Institute Talk, Best of Web, Original Content, TED Salon Talk (partner), Custom sponsored content
@@ -189,7 +162,7 @@ def download(urls, id_, csv_list):
         d["recording_date"]  =  temp  if temp==None  else temp[:10]
         
         t  =  get_value(["pageProps", "videoData", "publishedAt"], metadata)
-        d["published_timestamp"]  =  datetime.utcfromtimestamp(int(t)).strftime('%Y-%m-%d %H:%M:%S')
+        d["published_timestamp"]  =  t #datetime.utcfromtimestamp(int(t)).strftime('%Y-%m-%d %H:%M:%S')
 
         # Tags
         topicsLen = len(get_value(["pageProps", "videoData", "topics"], metadata))
