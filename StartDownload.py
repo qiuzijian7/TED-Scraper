@@ -6,7 +6,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 from datetime import datetime
 from requests.structures import CaseInsensitiveDict
-
+from selenium import webdriver
 
 '''  IGNORING WARNINGS  '''
 import warnings
@@ -39,13 +39,13 @@ def download(urls, id_, csv_list):
     print('download start:')
     for count, url in enumerate(urls):
         print(url)
-        def get_transcript(name,url):
+        def get_transcript(name,url,language):
            # transcriptUrl = 'https://www.ted.com/graphql?operationName=Transcript&variables={"id":"alexis_nikole_nelson_a_flavorful_field_guide_to_foraging","language":"zh-cn"}&extensions={"persistedQuery":{"version":1,"sha256Hash":"906b90e820733c27cab3bb5de1cb4578657af4610c346b235b4ece9e89dc88bd"}}'
             url = url.strip().replace('\t', '').replace('\n', ' ')
-            transcriptUrl = 'https://www.ted.com/graphql?operationName=Transcript&variables={"id":"' + name + '","language":"zh-cn"}&extensions={"persistedQuery":{"version":1,"sha256Hash":"906b90e820733c27cab3bb5de1cb4578657af4610c346b235b4ece9e89dc88bd"}}'
+            transcriptUrl = 'https://www.ted.com/graphql?operationName=Transcript&variables={"id":"' + name + '","language":"'+language+'"}&extensions={"persistedQuery":{"version":1,"sha256Hash":"906b90e820733c27cab3bb5de1cb4578657af4610c346b235b4ece9e89dc88bd"}}'
 
             headers = CaseInsensitiveDict()
-            headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0"
+            headers["User-Agent"] = UserAgent
             headers["Accept"] = "*/*"
             headers["Accept-Language"] = "en-US,en;q=0.5"
             headers["Accept-Encoding"] = "gzip, deflate, br"
@@ -56,7 +56,19 @@ def download(urls, id_, csv_list):
             resp = requests.get(transcriptUrl, headers=headers)
             #print(resp.content.decode())
             return resp.text
-         
+        def get_video_audio_url(url):        
+            opt = webdriver.ChromeOptions()   #创建浏览
+            # opt.set_headless()    #无窗口模式
+            driver = webdriver.Chrome(options=opt)  #创建浏览器对象
+            driver.get(url) #打开网页
+            # driver.maximize_window()   #最大化窗口
+            #time.sleep(2)     #加载等待
+            btn = driver.find_element("xpath",'//div/Button[@class="rounded-sm text-sm font-medium"]/div/div[contains(text(),"Share")]')
+            #btn = driver.find_element_by_xpath("//*[@id='maincontent']/div/div/div/div/div[2]/div[5]/div/button")
+            btn.click()
+            video_url = driver.find_element("xpath",'//a[starts-with(@href,"https://download.ted.com/products/")]').get_attribute('href')
+            audio_url = driver.find_element("xpath",'//a[starts-with(@href,"https://download.ted.com/talks/")]').get_attribute('href')
+            return video_url,audio_url
 
         def get__json_obj(url):
             html = ''
@@ -130,7 +142,8 @@ def download(urls, id_, csv_list):
         slug = get_value(["pageProps","videoData","slug"], metadata)
         language  =  get_value(["language"], metadata)
         #url__transcript  =  url + "/transcript?language=" + language
-        d["transcript"]  =  get_transcript(slug,url)
+        d["transcript_zh-cn"]  =  get_transcript(slug,url,'zh-cn')
+        d["transcript_en"]  =  get_transcript(slug,url,'en')
 
 
         d["video_type_name"]  =  get_value(["pageProps", "videoData", "tpye","name"], metadata)    # One of:  TED Stage Talk, TEDx Talk, TED-Ed Original, TED Institute Talk, Best of Web, Original Content, TED Salon Talk (partner), Custom sponsored content
@@ -147,25 +160,24 @@ def download(urls, id_, csv_list):
 
         d["speaker__why_listen"]  =  html_to_text(get_value(["pageProps", "videoData","speakers","Nodes", 0, "whylisten"], metadata))
 
-        d["speaker__what_others_say"]  =  get_value(["pageProps", "videoData","speakers","Nodes", 0, "whatotherssay"], metadata)#none
-        d["speaker__is_published"]  =  get_value(["pageProps", "videoData","speakers","Nodes", 0, "is_published"], metadata)#none
+        #d["speaker__what_others_say"]  =  get_value(["pageProps", "videoData","speakers","Nodes", 0, "whatotherssay"], metadata)#none
+        #d["speaker__is_published"]  =  get_value(["pageProps", "videoData","speakers","Nodes", 0, "is_published"], metadata)#none
         
-        d["all_speakers_details"]  =  get_value(["speakers"], metadata)#none
+        #d["all_speakers_details"]  =  get_value(["speakers"], metadata)#none
         
 
         d["is_talk_featured"]  =  get_value(["pageProps", "videoData", "featured"], metadata)
-        d["has_talk_citation"]  =  get_value(["pageProps", "videoData","speakers","Nodes", 0, "has_citations"], metadata)#none
+        d["has_talk_citation"]  =  get_value(["pageProps", "videoData","speakers","Nodes", 0, "has_citations"], metadata)
         
 
         # Recorded and Published time.
         temp  =  get_value(["pageProps", "videoData", "recordedOn"], metadata)
         d["recording_date"]  =  temp  if temp==None  else temp[:10]
         
-        t  =  get_value(["pageProps", "videoData", "publishedAt"], metadata)
-        d["published_timestamp"]  =  t #datetime.utcfromtimestamp(int(t)).strftime('%Y-%m-%d %H:%M:%S')
+        d["published_timestamp"]  =  get_value(["pageProps", "videoData", "publishedAt"], metadata)
 
         # Tags
-        topicsLen = len(get_value(["pageProps", "videoData", "topics"], metadata))
+        topicsLen = len(get_value(["pageProps", "videoData", "topics","nodes"], metadata))
 
         d["talks__tags"]  =  get_value(["targeting", "tag"], playerDataMetadata)
         d["number_of__tags"]  =  topicsLen or ""
@@ -173,56 +185,57 @@ def download(urls, id_, csv_list):
 
         d["language"]  =  language
         d["native_language"]  =  get_value(["nativeLanguage"], playerDataMetadata)
-        d["language_swap"]  =  get_value(["language_swap"], metadata)#none
+        #d["language_swap"]  =  get_value(["language_swap"], metadata)#none
                                 
         d["is_subtitle_required"]  =  get_value(["isSubtitleRequired"], playerDataMetadata)
         
 
         # URLs.
         d["url__webpage"]  =  url #get_value(["url"], metadata)
-        d["url__audio"]  =  get_value(["talks", 0, "downloads", "audioDownload"], metadata)#none
-        d["url__video"]  =  get_value(["resources", "h264", "file"], playerDataMetadata)
-        d["url__photo__talk"]  =  get_value(["talks", 0, "hero"], metadata)#none
-        d["url__photo__speaker"]  =  get_value(["speakers", 0, "photo_url"], metadata)#none
+        url__video, url__audio =get_video_audio_url(url)
+        d["url__audio"]  =  url__audio
+        d["url__video"]  =  url__video
+        d["url__photo__talk"]  =  get_value(["pageProps", "videoData","primaryImageSet", 0, "url"], metadata)#none
+        #d["url__photo__speaker"]  =  get_value(["speakers", 0, "photo_url"], metadata)#none
         
-        d["url__subtitled_videos"]  =  get_value(["talks", 0, "downloads", "subtitledDownloads"], metadata)#none
-        d["number_of__subtitled_videos"]  =  len(get_value(["talks", 0, "downloads", "subtitledDownloads"], metadata) or "")#none
+        #d["url__subtitled_videos"]  =  get_value(["talks", 0, "downloads", "subtitledDownloads"], metadata)#none
+        #d["number_of__subtitled_videos"]  =  len(get_value(["talks", 0, "downloads", "subtitledDownloads"], metadata) or "")#none
         
-        d["talk__download_languages"]  =  get_value(["talks", 0, "downloads", "languages"], metadata)    # [?]#none
-        d["number_of__talk__download_languages"]  =  len(get_value(["talks", 0, "downloads", "languages"], metadata) or "")    # [?]#none
+        #d["talk__download_languages"]  =  get_value(["talks", 0, "downloads", "languages"], metadata)    # [?]#none
+        #d["number_of__talk__download_languages"]  =  len(get_value(["talks", 0, "downloads", "languages"], metadata) or "")    # [?]#none
         
 
         # More resources.
-        d["talk__more_resources"]  =  get_value(["talks", 0, "more_resources"], metadata)#none
-        d["number_of__talk__more_resources"]  =  len(get_value(["talks", 0, "more_resources"], metadata) or "")#none
+        #d["talk__more_resources"]  =  get_value(["talks", 0, "more_resources"], metadata)#none
+        #d["number_of__talk__more_resources"]  =  len(get_value(["talks", 0, "more_resources"], metadata) or "")#none
 
 
         # Recommendations.
-        d["talk__recommendations__blurb"]  =  get_value(["talks", 0, "recommendations", "blurb"], metadata)#none
+        #d["talk__recommendations__blurb"]  =  get_value(["talks", 0, "recommendations", "blurb"], metadata)#none
         
-        d["talk__recommendations"]  =  get_value(["talks", 0, "recommendations", "rec_lists"], metadata)#none
-        d["number_of__talk__recommendations"]  =  len(get_value(["talks", 0, "recommendations", "rec_lists"], metadata) or "")#none
+        #d["talk__recommendations"]  =  get_value(["talks", 0, "recommendations", "rec_lists"], metadata)#none
+        #d["number_of__talk__recommendations"]  =  len(get_value(["talks", 0, "recommendations", "rec_lists"], metadata) or "")#none
 
 
         # Related Talks.
-        d["related_talks"]  =  get_value(["talks", 0, "related_talks"], metadata)#none
-        d["number_of__related_talks"]  =  len(get_value(["talks", 0, "related_talks"], metadata) or "")#none
+        #d["related_talks"]  =  get_value(["talks", 0, "related_talks"], metadata)#none
+        #d["number_of__related_talks"]  =  len(get_value(["talks", 0, "related_talks"], metadata) or "")#none
 
 
         # Durations.
-        d["intro_duration"]  =  get_value(["talks", 0, "player_talks", 0, "introDuration"], metadata)    # [?]#none
-        d["ad_duration"]  =  get_value(["talks", 0, "player_talks", 0, "adDuration"], metadata)    # [?]#none
-        d["post_ad_duration"]  =  get_value(["talks", 0, "player_talks", 0, "postAdDuration"], metadata)    # [?]#none
-        d["external__duration"]  =  get_value(["talks", 0, "player_talks", 0, "external", "duration"], metadata)    # [?]#none
-        d["external__start_time"]  =  get_value(["talks", 0, "player_talks", 0, "external", "start_time"], metadata)    # [?]#none
+        #d["intro_duration"]  =  get_value(["talks", 0, "player_talks", 0, "introDuration"], metadata)    # [?]#none
+        #d["ad_duration"]  =  get_value(["talks", 0, "player_talks", 0, "adDuration"], metadata)    # [?]#none
+        #d["post_ad_duration"]  =  get_value(["talks", 0, "player_talks", 0, "postAdDuration"], metadata)    # [?]#none
+        #d["external__duration"]  =  get_value(["talks", 0, "player_talks", 0, "external", "duration"], metadata)    # [?]#none
+        #d["external__start_time"]  =  get_value(["talks", 0, "player_talks", 0, "external", "start_time"], metadata)    # [?]#none
         
 
-        d["talks__player_talks__resources__h264__00__bitrate"]  =  get_value(["resources", "h264", "bitrate"], playerDataMetadata)    
+        #d["talks__player_talks__resources__h264__00__bitrate"]  =  get_value(["resources", "h264", "bitrate"], playerDataMetadata)    
 
 
         # [?] Take Action.
-        d["talks__take_action"]  =  get_value(["talks", 0, "take_action"], metadata)#none
-        d["number_of__talks__take_actions"]  =  len(get_value(["talks", 0, "take_action"], metadata) or "")#none
+        #d["talks__take_action"]  =  get_value(["talks", 0, "take_action"], metadata)#none
+        #d["number_of__talks__take_actions"]  =  len(get_value(["talks", 0, "take_action"], metadata) or "")#none
 
 
         csv_list.append(d)
