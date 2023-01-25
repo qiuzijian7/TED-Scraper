@@ -1,5 +1,5 @@
-from selenium import webdriver
+from tqdm import tqdm
 
-driver = webdriver.Chrome()
-if __name__ == '__main__':
-    driver.get('http://www.baidu.com/')
+for i in tqdm(range(1000000), desc="Processing...",
+              bar_format="{l_bar}{bar} [time left: {remaining}]"):
+    pass
