@@ -1,0 +1,1448 @@
+{
+	"data": {
+		"translation": {
+			"id": "211394",
+			"paragraphs": [
+				{
+					"cues": [
+						{
+							"text": "如果一个严格素食主义者\\n掉到森林里......",
+							"time": 913,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 3791,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "然后没有人在那听他们说，\\n“我是个严素主义者！”",
+							"time": 6461,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 12175,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "那他们还是严素主义者吗？",
+							"time": 15219,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 17472,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声和掌声）",
+							"time": 21434,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "我喜欢用笑话\\n来开始有关我饮食习惯的对话，",
+							"time": 26147,
+							"__typename": "Cue"
+						},
+						{
+							"text": "因为大脑喜欢笑声，",
+							"time": 32528,
+							"__typename": "Cue"
+						},
+						{
+							"text": "也因为有时在你提到\\n“严素主义”这个词的时候，",
+							"time": 36282,
+							"__typename": "Cue"
+						},
+						{
+							"text": "人们会有点害怕。",
+							"time": 40078,
+							"__typename": "Cue"
+						},
+						{
+							"text": "他们的脑海里马上浮现出",
+							"time": 44874,
+							"__typename": "Cue"
+						},
+						{
+							"text": "一个不存在的超级严素主义者，",
+							"time": 48377,
+							"__typename": "Cue"
+						},
+						{
+							"text": "这个形象还是他们听过严格素食者\\n说的每一句烦人话的结合体。",
+							"time": 52340,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 57303,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "然后那时起，\\n他们就已经不在听了。",
+							"time": 58763,
+							"__typename": "Cue"
+						},
+						{
+							"text": "假如你用某种方法，\\n绕过了过去 15 到 20 年里的",
+							"time": 62642,
+							"__typename": "Cue"
+						},
+						{
+							"text": "这种时代思想，",
+							"time": 66270,
+							"__typename": "Cue"
+						},
+						{
+							"text": "第一，告诉我你怎么做到的。",
+							"time": 69065,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 71400,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "第二，我会告诉你严素主义是什么意思，\\n毕竟我很确定你很想知道。",
+							"time": 76322,
+							"__typename": "Cue"
+						},
+						{
+							"text": "“严格素食”一词既指一种完全排除\\n动物产品的饮食习惯，",
+							"time": 81452,
+							"__typename": "Cue"
+						},
+						{
+							"text": "也指遵循这种饮食习惯的人，",
+							"time": 86332,
+							"__typename": "Cue"
+						},
+						{
+							"text": "通常和“基于植物”通用。",
+							"time": 90253,
+							"__typename": "Cue"
+						},
+						{
+							"text": "但“基于植物”的意思\\n是“严素”但不严素。",
+							"time": 93131,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 98010,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "本质上并不一定\\n是为了减轻动物的痛苦，",
+							"time": 100429,
+							"__typename": "Cue"
+						},
+						{
+							"text": "但是可能是为了改善一个人的健康。",
+							"time": 104934,
+							"__typename": "Cue"
+						},
+						{
+							"text": "但这不是我们今天要讨论的。",
+							"time": 107645,
+							"__typename": "Cue"
+						},
+						{
+							"text": "绝不是，老兄。",
+							"time": 112733,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 114152,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "我看到有些小机灵想要抬杠。",
+							"time": 116320,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在我的TED演讲上可不行。",
+							"time": 119073,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 120533,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "我是一个户外教育者，",
+							"time": 126455,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我是一个野生食物采集人。",
+							"time": 130168,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我勉强算是一个社交媒体明星。",
+							"time": 133212,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 136382,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "而且是的，我是一个“严素”者。",
+							"time": 138426,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "观众：哇！",
+							"time": 140970,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "谢谢。",
+							"time": 142597,
+							"__typename": "Cue"
+						},
+						{
+							"text": "那可不是我通常会得到的反应。",
+							"time": 143973,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 146225,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "在我五岁时，",
+							"time": 147852,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在意识到牧场里的牛",
+							"time": 149020,
+							"__typename": "Cue"
+						},
+						{
+							"text": "和我爸烤架上的牛\\n是一样的牛时......",
+							"time": 152064,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 155735,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "我问我爸妈\\n自己能不能当个素食者。",
+							"time": 158112,
+							"__typename": "Cue"
+						},
+						{
+							"text": "他们回答道，",
+							"time": 161949,
+							"__typename": "Cue"
+						},
+						{
+							"text": "“当然了，但先等到你长大了。”",
+							"time": 164035,
+							"__typename": "Cue"
+						},
+						{
+							"text": "他们十分确定我在接下来的\\n五到九年里会改变我的想法。",
+							"time": 168247,
+							"__typename": "Cue"
+						},
+						{
+							"text": "嗯。",
+							"time": 174837,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在我 12 岁生日后不久，",
+							"time": 176797,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我跨出了那步，\\n并且完全放弃了肉。",
+							"time": 178966,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我又用了另外 12 年\\n来放弃蛋和乳制品。",
+							"time": 182637,
+							"__typename": "Cue"
+						},
+						{
+							"text": "现在在严格素食主义和采食之间，",
+							"time": 186474,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我有着世上相对更加兼容并蓄的\\n食品储藏柜之一。",
+							"time": 191354,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（视频）请看蓝绿乳菇。",
+							"time": 197360,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我们来用海带做一个精致的甜点。",
+							"time": 200196,
+							"__typename": "Cue"
+						},
+						{
+							"text": "这是一颗含羞树。",
+							"time": 202573,
+							"__typename": "Cue"
+						},
+						{
+							"text": "但愿是马勃菌蘑菇！\\n但愿是马勃菌蘑菇！",
+							"time": 204367,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 206702,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "那就是一颗马勃菌蘑菇。",
+							"time": 208246,
+							"__typename": "Cue"
+						},
+						{
+							"text": "采食是一门艺术/科学，\\n有关鉴别、收集，",
+							"time": 211249,
+							"__typename": "Cue"
+						},
+						{
+							"text": "以及食用野生食物。",
+							"time": 217088,
+							"__typename": "Cue"
+						},
+						{
+							"text": "所以如果有人曾说服你\\n试吃蒲公英或者酢浆草，",
+							"time": 220049,
+							"__typename": "Cue"
+						},
+						{
+							"text": "恭喜，你也是一位采食者。",
+							"time": 226097,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在我妈妈告诉我\\n在院子草坪和人行道上",
+							"time": 230351,
+							"__typename": "Cue"
+						},
+						{
+							"text": "有一堆免费食物时......",
+							"time": 234647,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 237775,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "我的思维被颠覆了。",
+							"time": 239360,
+							"__typename": "Cue"
+						},
+						{
+							"text": "所有这些免费水果、蔬菜\\n还有菌菇，不需要你浇水，",
+							"time": 242113,
+							"__typename": "Cue"
+						},
+						{
+							"text": "不需要你花时间，",
+							"time": 247994,
+							"__typename": "Cue"
+						},
+						{
+							"text": "通常比起它们在商店里的对应产品",
+							"time": 250204,
+							"__typename": "Cue"
+						},
+						{
+							"text": "还更健康。",
+							"time": 253082,
+							"__typename": "Cue"
+						},
+						{
+							"text": "悄悄和你们说一个可爱小知识，",
+							"time": 255042,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我们在过去一百年里做了件事，",
+							"time": 257628,
+							"__typename": "Cue"
+						},
+						{
+							"text": "把食物培育得更好运输、更大、\\n味道更温和。",
+							"time": 260006,
+							"__typename": "Cue"
+						},
+						{
+							"text": "但是常常把营养给培育没了。",
+							"time": 265469,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我们来举个例子，马齿苋\\n或者如果你在讲西班牙语的美洲地区，",
+							"time": 271309,
+							"__typename": "Cue"
+						},
+						{
+							"text": "叫Verdolagas。",
+							"time": 276230,
+							"__typename": "Cue"
+						},
+						{
+							"text": "这是一种在夏季长在\\n人行道缝隙里的野菜。",
+							"time": 279275,
+							"__typename": "Cue"
+						},
+						{
+							"text": "它富含欧米茄 3 脂肪酸，\\n而且它不是一种鱼。",
+							"time": 285614,
+							"__typename": "Cue"
+						},
+						{
+							"text": "富含铁，你可以走了，大力水手。",
+							"time": 290411,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 292913,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "还有维生素C，",
+							"time": 293914,
+							"__typename": "Cue"
+						},
+						{
+							"text": "你的免疫系统会谢谢你的。",
+							"time": 295249,
+							"__typename": "Cue"
+						},
+						{
+							"text": "有时候我就站在我的社区里，",
+							"time": 298377,
+							"__typename": "Cue"
+						},
+						{
+							"text": "像这样看着地面。",
+							"time": 301589,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 304383,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "而似乎没有其他人在乎，\\n让我很困惑。",
+							"time": 307762,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "我因为基本相同的理由\\n成为了一个采食者和一位严素者。",
+							"time": 313768,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我对这颗星球和它的居民的爱。",
+							"time": 319982,
+							"__typename": "Cue"
+						},
+						{
+							"text": "但让我告诉你，",
+							"time": 324403,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在那两个身份标签之间，",
+							"time": 326614,
+							"__typename": "Cue"
+						},
+						{
+							"text": "让人们试吃我的食物相当难。",
+							"time": 328616,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 332286,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "你和别人讲某个东西是严素产品时\\n你就已经面临怀疑态度了。",
+							"time": 335081,
+							"__typename": "Cue"
+						},
+						{
+							"text": "告诉人们那个是严素产品，然后说\\n大半食材是你从地上拔的......",
+							"time": 340211,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 343839,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "这可推销不出去。",
+							"time": 346008,
+							"__typename": "Cue"
+						},
+						{
+							"text": "所以今天我将告诉你们所有人\\n我的小贴士，",
+							"time": 348969,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我让人们扩展他们的食谱",
+							"time": 353808,
+							"__typename": "Cue"
+						},
+						{
+							"text": "并自主尝试野生的严素食物的诀窍。",
+							"time": 356685,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 359772,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "这不是谎言骗子秀。",
+							"time": 362191,
+							"__typename": "Cue"
+						},
+						{
+							"text": "这是有点烦人但是总体可爱的\\n高个子严素主义者秀。",
+							"time": 365528,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 369490,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "那今天我们来做一道\\n刚好是严素食品的零食，",
+							"time": 371784,
+							"__typename": "Cue"
+						},
+						{
+							"text": "刚好对星球很友好，",
+							"time": 377206,
+							"__typename": "Cue"
+						},
+						{
+							"text": "也刚好用到我最喜欢的食材之一。",
+							"time": 379208,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我们来做咸甜口味海带脆片，",
+							"time": 381877,
+							"__typename": "Cue"
+						},
+						{
+							"text": "一道被叫做다시마튀각\\n（韩式炸海带片）的韩国零食。",
+							"time": 385005,
+							"__typename": "Cue"
+						},
+						{
+							"text": "噢，谢谢你！",
+							"time": 389385,
+							"__typename": "Cue"
+						},
+						{
+							"text": "一个对我发音的喝彩，\\n我刚刚还有点担心。",
+							"time": 390928,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 393556,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "我知道你们这帮孩子十分着迷于",
+							"time": 396725,
+							"__typename": "Cue"
+						},
+						{
+							"text": "那些烧海苔零食，",
+							"time": 399186,
+							"__typename": "Cue"
+						},
+						{
+							"text": "那为什么不更上一个档次——",
+							"time": 401981,
+							"__typename": "Cue"
+						},
+						{
+							"text": "不好意思——",
+							"time": 404066,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 405484,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "用一种本地采集的食材：\\n巨藻。",
+							"time": 410406,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我在这儿，就在温哥华采集的这个。",
+							"time": 414660,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（掌声和欢呼）",
+							"time": 417538,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "现在我将开始把这个海草切片。",
+							"time": 422668,
+							"__typename": "Cue"
+						},
+						{
+							"text": "非常正式的厨房剪刀。",
+							"time": 428048,
+							"__typename": "Cue"
+						},
+						{
+							"text": "而在我做这件事时，",
+							"time": 431093,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我将给你我的第一个小提示。",
+							"time": 433345,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在为持怀疑态度的人\\n介绍一道菜时，",
+							"time": 437683,
+							"__typename": "Cue"
+						},
+						{
+							"text": "最好使用一道\\n没有伪装成其它东西的菜。",
+							"time": 441228,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（掌声）",
+							"time": 447526,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "你知道。",
+							"time": 448944,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "那样做，他们就不会\\n有东西来联想，",
+							"time": 451489,
+							"__typename": "Cue"
+						},
+						{
+							"text": "没有记忆或他们妈妈的\\n做法来和它比较。",
+							"time": 454825,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 459788,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "有可能他们对它\\n会完全没有任何想法。",
+							"time": 461749,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我将给这些喷上点葵花籽油。",
+							"time": 465252,
+							"__typename": "Cue"
+						},
+						{
+							"text": "呜哦。",
+							"time": 468881,
+							"__typename": "Cue"
+						},
+						{
+							"text": "真棒。",
+							"time": 470633,
+							"__typename": "Cue"
+						},
+						{
+							"text": "现在，海草和海洋蔬菜总的来说",
+							"time": 474261,
+							"__typename": "Cue"
+						},
+						{
+							"text": "是非常让人兴奋的食物领域。",
+							"time": 478557,
+							"__typename": "Cue"
+						},
+						{
+							"text": "它们不需要淡水。",
+							"time": 482895,
+							"__typename": "Cue"
+						},
+						{
+							"text": "它们不需要肥料。",
+							"time": 486732,
+							"__typename": "Cue"
+						},
+						{
+							"text": "它们不需要土地。",
+							"time": 488192,
+							"__typename": "Cue"
+						},
+						{
+							"text": "它们就这样飘在咸咸的海里，\\n创造出生态系统，",
+							"time": 490986,
+							"__typename": "Cue"
+						},
+						{
+							"text": "生产出氧气给我们所有人呼吸，",
+							"time": 494573,
+							"__typename": "Cue"
+						},
+						{
+							"text": "还被做成这些富含氨基酸的零食。",
+							"time": 496909,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在当下，海草是真的有远见的食物。",
+							"time": 500996,
+							"__typename": "Cue"
+						},
+						{
+							"text": "它们是一种我希望\\n更多人会去接触的选择，",
+							"time": 504708,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在径流、取水、人工问题\\n以及单一栽培",
+							"time": 507419,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在北美这里长期困扰着现代农业时。",
+							"time": 513467,
+							"__typename": "Cue"
+						},
+						{
+							"text": "对。",
+							"time": 518347,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（掌声）",
+							"time": 519557,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "还有它们非常好吃。",
+							"time": 522017,
+							"__typename": "Cue"
+						},
+						{
+							"text": "那些氨基酸除了给你的饭菜带来鲜味以外\\n还会做很多其它事。",
+							"time": 525938,
+							"__typename": "Cue"
+						},
+						{
+							"text": "巨藻平均带有本身重量\\n15.3% 的蛋白质。",
+							"time": 531151,
+							"__typename": "Cue"
+						},
+						{
+							"text": "这就是给所有问严格素食主义者\\n是从哪得到蛋白质的人的答案。",
+							"time": 537408,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我们没事。",
+							"time": 542913,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 544415,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "像我之前说过的，\\n这道菜不是新东西。",
+							"time": 547626,
+							"__typename": "Cue"
+						},
+						{
+							"text": "它在韩国部分地区\\n是一种受欢迎的酒吧小食，",
+							"time": 551964,
+							"__typename": "Cue"
+						},
+						{
+							"text": "而我们过去实际上有很多\\n误打误撞出的严格素食主义食谱。",
+							"time": 555217,
+							"__typename": "Cue"
+						},
+						{
+							"text": "这是因为直到最近之前，",
+							"time": 561724,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我们都没有吃这么多肉。",
+							"time": 564268,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "这也将引出我的第二个提示。",
+							"time": 567396,
+							"__typename": "Cue"
+						},
+						{
+							"text": "它有点热辣、有点敏感。",
+							"time": 570733,
+							"__typename": "Cue"
+						},
+						{
+							"text": "希望给你们展示食物的承诺\\n能帮你们所有人撑到听完。",
+							"time": 572901,
+							"__typename": "Cue"
+						},
+						{
+							"text": "也就是这个。",
+							"time": 578532,
+							"__typename": "Cue"
+						},
+						{
+							"text": "向你的朋友们解释我们的吃饭方式\\n并不是可持续的。",
+							"time": 581285,
+							"__typename": "Cue"
+						},
+						{
+							"text": "对。",
+							"time": 587166,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（掌声）",
+							"time": 588334,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "它不是。",
+							"time": 589668,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（掌声）",
+							"time": 590878,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "在我们不断获取\\n更多土地和更多淡水时，",
+							"time": 592129,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我们开了一个我们星球\\n无法维持的先例。",
+							"time": 596800,
+							"__typename": "Cue"
+						},
+						{
+							"text": "告诉他们，你并不是\\n想改变他们的整个人生。",
+							"time": 603724,
+							"__typename": "Cue"
+						},
+						{
+							"text": "你只是希望\\n他们对他们的一些选择",
+							"time": 607353,
+							"__typename": "Cue"
+						},
+						{
+							"text": "想多一点，",
+							"time": 609813,
+							"__typename": "Cue"
+						},
+						{
+							"text": "在便利店里",
+							"time": 611148,
+							"__typename": "Cue"
+						},
+						{
+							"text": "去选择那些海带脆片\\n而不是炸猪皮。",
+							"time": 612691,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我发现为人们介绍\\n他们当地的野生食品",
+							"time": 616779,
+							"__typename": "Cue"
+						},
+						{
+							"text": "是一个培养他们和\\n他们的食物间联系的很棒的方法。",
+							"time": 621075,
+							"__typename": "Cue"
+						},
+						{
+							"text": "而且它是一个越过羞耻感\\n培养联系的方式。",
+							"time": 625663,
+							"__typename": "Cue"
+						},
+						{
+							"text": "并且它是通过分享一份零食\\n而不是一张信息图，",
+							"time": 630042,
+							"__typename": "Cue"
+						},
+						{
+							"text": "或一份令人吃惊的媒体报道。",
+							"time": 634421,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "现在到了关键时刻。",
+							"time": 638509,
+							"__typename": "Cue"
+						},
+						{
+							"text": "让我们来看看\\n这些家伙们在里面如何。",
+							"time": 641053,
+							"__typename": "Cue"
+						},
+						{
+							"text": "噢，可以，这样就很好。",
+							"time": 644598,
+							"__typename": "Cue"
+						},
+						{
+							"text": "现在我将和你们所有人实话实说，",
+							"time": 649645,
+							"__typename": "Cue"
+						},
+						{
+							"text": "因为我永远不会对你们拐弯抹角。",
+							"time": 653273,
+							"__typename": "Cue"
+						},
+						{
+							"text": "有些人……",
+							"time": 657152,
+							"__typename": "Cue"
+						},
+						{
+							"text": "好了，出来吧，宝贝们。",
+							"time": 659029,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 663826,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "有些人会又气又躁到发咸。",
+							"time": 666954,
+							"__typename": "Cue"
+						},
+						{
+							"text": "而我说出来会很好笑，\\n因为这个是盐。",
+							"time": 670582,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（笑声）",
+							"time": 673585,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "而那就是如此，",
+							"time": 676547,
+							"__typename": "Cue"
+						},
+						{
+							"text": "我们无法选择人们改变的速度，",
+							"time": 678966,
+							"__typename": "Cue"
+						},
+						{
+							"text": "这还是假设他们决定要做出改变。",
+							"time": 682553,
+							"__typename": "Cue"
+						},
+						{
+							"text": "但是，有些人——这是糖——",
+							"time": 686849,
+							"__typename": "Cue"
+						},
+						{
+							"text": "会态度甜蜜。",
+							"time": 692438,
+							"__typename": "Cue"
+						},
+						{
+							"text": "他们会感谢你从他们的角度出发。",
+							"time": 695482,
+							"__typename": "Cue"
+						},
+						{
+							"text": "感谢你分享一份零食和微笑，",
+							"time": 699945,
+							"__typename": "Cue"
+						},
+						{
+							"text": "而可能你向他们送去的那点共情",
+							"time": 702740,
+							"__typename": "Cue"
+						},
+						{
+							"text": "将让他们在他们人生道路前进时\\n做出一些大改变。",
+							"time": 706702,
+							"__typename": "Cue"
+						},
+						{
+							"text": "谁知道呢，",
+							"time": 713208,
+							"__typename": "Cue"
+						},
+						{
+							"text": "可能下一次他们能够猛到\\n去尝试橡子起司或其他东西。",
+							"time": 714418,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "所以分享那份零食。",
+							"time": 720340,
+							"__typename": "Cue"
+						},
+						{
+							"text": "创造那份回忆。",
+							"time": 722885,
+							"__typename": "Cue"
+						},
+						{
+							"text": "十分感谢你们所有人\\n来听我的演讲。",
+							"time": 725304,
+							"__typename": "Cue"
+						},
+						{
+							"text": "呜噢。",
+							"time": 730476,
+							"__typename": "Cue"
+						},
+						{
+							"text": "刚才那好脆。",
+							"time": 731810,
+							"__typename": "Cue"
+						},
+						{
+							"text": "加餐愉快。",
+							"time": 733270,
+							"__typename": "Cue"
+						},
+						{
+							"text": "爱你。",
+							"time": 734772,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				},
+				{
+					"cues": [
+						{
+							"text": "（欢呼和掌声）",
+							"time": 736023,
+							"__typename": "Cue"
+						}
+					],
+					"__typename": "Paragraph"
+				}
+			],
+			"__typename": "Translation"
+		},
+		"video": {
+			"id": "92611",
+			"talkExtras": {
+				"footnotes": [],
+				"__typename": "TalkExtras"
+			},
+			"__typename": "Video"
+		}
+	}
+}

@@ -11,6 +11,10 @@ import openpyxl
 from retrying import retry
 from tqdm import tqdm
 import logging
+from pysrt import SubRipItem, SubRipFile
+import math
+from urllib.request import urlopen
+
 UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
 requests.adapters.DEFAULT_RETRIES = 5
 s = requests.session()
@@ -28,42 +32,44 @@ def transcript2src(dst_path,transcriptUrl):
     headers["content-type"] = "application/json"
     headers["client-id"] = "Zenith production"
     headers["x-operation-name"] = "Transcript"
-    resp = requests.get(transcriptUrl, headers=headers)
+    resp = s.get(transcriptUrl, headers=headers)
     #logging.info(resp.content.decode())
     if 'errors' in resp.text:
         logging.info('error transcript: %s',transcriptUrl)
         return
-    src_str =''
+
     try:
-        data = json.loads(resp.text)
-        if not data['data']['translation']:
+        transcript = json.loads(resp.text)
+        if not transcript['data']['translation']:
             return
-        src_str = data['data']['translation']['paragraphs']
     except json.decoder.JSONDecodeError as e:
-        logging.info("An error occurred while parsing the JSON transcript:%s,%s", e,transcriptUrl)
+        logging.info("An error occurred while parsing the JSON transcript:%s, %s, %s", e,resp.text,transcriptUrl)
         return
             
-    # create an empty list to hold the srt lines
-    srt_lines = []
-
-    # iterate through the paragraphs and cues
-    for i, paragraph in enumerate(src_str, start=1):
-        for cue in paragraph["cues"]:
-            # format the srt line
-            start_time = cue["time"] / 1000
+    subs = SubRipFile()
+    cnt = 1
+    pararaphs = transcript["data"]["translation"]["paragraphs"]
+    for i,paragraph in enumerate(pararaphs):
+        # Get the cues list
+        cues = paragraph["cues"]
+        cues_next = pararaphs[i+1]["cues"] if i<len(pararaphs)-1 else pararaphs[-1]["cues"] #索引问题
+        # Iterate over the cues
+        for j, cue in enumerate(cues):
+            # Get the start time, end time and text of the cue
+            start_time = cue["time"]
             text = cue["text"]
-            srt_line = f"{i}\n{start_time:02}:{start_time:02} --> {start_time:02}:{start_time:02}\n{text}\n"
-            # add the srt line to the list
-            srt_lines.append(srt_line)
+            end_time = cues[j+1]["time"] if j < len(cues)-1 else cues_next[0]["time"]
+            #start_time_obj = datetime.fromtimestamp(start_time/1000.0)
+            #end_time_obj = datetime.fromtimestamp(end_time/1000.0)
+            #subs.append(SubRipItem(cnt, start_time_obj.time(), end_time_obj.time(),text))
+            subs.append(SubRipItem(cnt, start_time, end_time,text))
 
-    # basename = os.path.basename(s_utf8)
-    # # write the srt lines to a file
-    # if len(basename)>250:
-    #    basename = basename[-250:]
-    # dirname = os.path.dirname(s_utf8)
-    # s_utf8 = dirname+'/'+basename
-    with open(s_utf8, "w", encoding='utf-8') as srt_file:
-        srt_file.writelines(srt_lines)
+            cnt = cnt+1
+
+    subs.save(s_utf8, encoding='utf-8')
+    with open('output.txt','w', encoding='utf-8') as f:
+        f.write(resp.text)
+        f.close()
 
 
 
@@ -80,30 +86,34 @@ def download_progress(blocknum, blocksize, totalsize):
 def download_inner(urls,id):
     for  (count, url_dict) in enumerate(urls):
         url = url_dict['url']
-        path = url_dict['path']                  
+        path = url_dict['path']   
+        tmp_path = path+'_tmp'               
         #urllib.request.urlretrieve(url, path, reporthook=download_progress)
-        if not url:
+        if type(url) == str:
             try:
-                # with urllib.request.urlopen(url) as url, open(path, 'wb') as fp:
-                #     meta = url.info()
-                #     file_size = int(meta.get("Content-Length"))
-                #     t = tqdm(total=file_size, unit='B', unit_scale=True, desc=path)
-                #     t.bar_format= path[-30:] + " : {percentage:3.0f}%|{bar}| {n_fmt}/{total_fmt} [{elapsed}, {rate_fmt}{postfix}]"
-                #     while True:
-                #         buffer = url.read(8192)
-                #         if not buffer:
-                #             break
-                #         fp.write(buffer)
-                #         t.update(len(buffer))
-                response = requests.get(url, stream=True)
-                file_size = int(response.headers.get("Content-Length", 0))
-                t = tqdm(total=file_size, unit='B', unit_scale=True, desc=path)
-                with open(path, 'wb') as fp:
-                    for data in response.iter_content(32*1024):
+                if os.path.exists(tmp_path): #判断下载文件是否存在
+                    downloaded_size = os.path.getsize(tmp_path) #获取已经下载部分的文件大小
+                else:
+                    downloaded_size = 0
+                file_size = int(urlopen(url).info().get('Content-Length', -1)) #获取下载文件大小
+                headers = {"Range": "bytes=%s-%s" % (downloaded_size, file_size)}
+                response = requests.get(url,headers=headers, stream=True)
+                t = tqdm(total=file_size, unit='B', initial=downloaded_size,unit_scale=True, desc=tmp_path)
+                t.bar_format= tmp_path[-30:] + " : {percentage:3.0f}%|{bar}| {n_fmt}/{total_fmt} [{elapsed}, {rate_fmt}{postfix}]"
+                with open(tmp_path, 'ab') as fp:
+                    for data in response.iter_content(1024):
                         fp.write(data)
-                        t.update(len(data))
+                        t.update(1024)
+                        if file_size != 0 and downloaded_size >= file_size:
+                            break
+                downloaded_size = os.path.getsize(tmp_path)
+                if downloaded_size >= file_size:
+                    os.rename(tmp_path, path)
+                    logging.info("File downloaded and renamed successfully:%s",path)
+                t.close()
             except BaseException  as e:
                 logging.info('==============download error : %s, %s',e, url)
+            
 
 
 def download_in_parallel(concurreny_count,df,root_folder):
@@ -114,7 +124,7 @@ def download_in_parallel(concurreny_count,df,root_folder):
         if not row['talk__id']:
             continue
         id = int(row['talk__id'])
-        valid_file_name = re.sub(r'[^\w\s]', '', row['talk__name'])
+        valid_file_name = re.sub(r'[^\w\s]|\t|\n|标题', '', row['talk__name'])
         dst_dir = root_folder+'/'+str(id)+'_'+valid_file_name.rstrip()
         slug = row['slug'].rstrip()
         if not os.path.exists(dst_dir):
@@ -131,8 +141,8 @@ def download_in_parallel(concurreny_count,df,root_folder):
             d['url'] = row['url__audio']
             d['path'] = mp3_file 
             urllist.append(d)         
-        h264_file = dst_dir+'/'+slug+'.mp4'
-        if not os.path.exists(h264_file) and row['url__h264']!='' and (row['url__audio']=='' or row['url__video'] ==''): 
+        h264_file = dst_dir+'/'+slug+'_h264.mp4'
+        if not os.path.exists(h264_file) and row['url__h264']!='' and row['url__video'] =='': 
             d = dict()
             d['url'] = row['url__h264']
             d['path'] = h264_file
