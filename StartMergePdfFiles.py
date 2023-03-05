@@ -1,7 +1,6 @@
 
 
-# 将h264或者mp4转成mp3
-# 将英文srt合并到mp4
+# 将标题和srt文件写入pdf
 from moviepy.editor import *
 from moviepy.video.compositing.concatenate import concatenate_videoclips
 import pysrt
@@ -42,3 +41,4 @@ if __name__ == '__main__':
         for filename in filelist:
             if filename.endswith('.mp4') and not filename.endswith('_tmp.mp4'):
                 print(filename)
+                merge_srt_video

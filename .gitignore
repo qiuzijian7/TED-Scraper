@@ -137,3 +137,6 @@ dmypy.json
 *.csv
 *.csv
 *.xlsx
+*.mp4_tmp
+*.mp3_tmp
+output.txt
